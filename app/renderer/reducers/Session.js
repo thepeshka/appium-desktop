@@ -47,6 +47,25 @@ const INITIAL_STATE = {
 let nextState;
 
 export default function session (state = INITIAL_STATE, action) {
+  var args = process.argv;
+  console.log(args);
+  var startpos = args.findIndex((arg) => {return arg==="--initialStateMixin"}) + 1;
+  if (startpos!==-1)
+    var mixin = {};
+    for (var arg in args.slice(startpos)){
+      var argkey = arg.split("=")[0];
+      var argval = arg.split("=")[1];
+      if (argkey === arg || !argkey || !argval)
+        continue;
+      var argkeyparts = arg.split(".");
+      var argkeypart;
+      for (argkeypart in argkeyparts){
+        mixin[argkeypart] = {};
+      }
+      mixin[argkeypart] = argval;
+    }
+    state = Object.assign(state, mixin);
+  console.log(state);
   switch (action.type) {
     case NEW_SESSION_REQUESTED:
       return {

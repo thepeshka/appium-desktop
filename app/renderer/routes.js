@@ -9,7 +9,7 @@ import ConfigPage from './containers/ConfigPage';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={StartServerPage} />
+    <IndexRoute component={SessionPage} />
     <Route path="monitor" component={ServerMonitorPage} />
     <Route path="session" component={SessionPage} />
     <Route path="inspector" component={InspectorPage} />

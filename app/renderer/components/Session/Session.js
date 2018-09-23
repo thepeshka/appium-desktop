@@ -61,7 +61,7 @@ export default class Session extends Component {
     const headspinTabHead = <span className={SessionStyles.tabText}><img src="images/headspin_logo.svg" /></span>;
     const browserstackTabHead = <span className={SessionStyles.tabText}><img src="images/browserstack_logo.svg" /></span>;
     const bitbarTabHead = <span className={SessionStyles.tabText}><img src="images/bitbar_logo.svg" /></span>;
-    
+    newSession(null, attachSessId);
     return <Spin spinning={!!sessionLoading}>
       <div className={SessionStyles['session-container']}>
         <div id='serverTypeTabs'>
